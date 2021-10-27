@@ -21,10 +21,20 @@ class LinkedList:
         return ",".join(nodes)
 
     def append(self, data):
-        pass
+        node = Node(data)
+        if self.head.next is None:
+            self.head.next = node
+            return
+
+        current_node = self.head.next
+        while current_node.next:
+            current_node = current_node.next
+
+        current_node.next = node
 
     def prepend(self, data):
-        pass
+        node = Node(data, self.head.next)
+        self.head.next = node
 
     def insert(self, data, new_data):
         pass
